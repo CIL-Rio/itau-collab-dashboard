@@ -20,8 +20,6 @@ No caso de utilizar o Webex Service Apps, você precisa configurar as seguintes 
 - WEBEX_SERVICE_ACCESS_TOKEN: token de acesso para o serviço do Webex 
 - WEBEX_SERVICE_REFRESH_TOKEN: token de atualização para o serviço do Webex
 
-## Uso Você pode utilizar este código para interagir com a API do Webex da seguinte forma:
-
 ### Classe webexIntegration
  Esta classe é responsável por lidar com a integração com o Webex e inclui os seguintes métodos:
 
