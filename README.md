@@ -8,6 +8,8 @@ For development, we recommend using the development token available at [webex de
 
 For more information about Webex devices metrics, refer to [xAPI docs](https://roomos.cisco.com/xapi) and [Webex xAPI query](https://developer.webex.com/docs/api/v1/xapi/query-status). For more about services, refer to [Webex Services](https://developer.webex.com/docs/service-apps). For more about Integrations, refer to [Webex Integrations](https://developer.webex.com/docs/integrations).
 
+Please note that Webex Services must be approved by the Webex Organization where the devices are located, via the Webex Control Hub. If you are using the development token, this step is not necessary as the permissions are inherited from the user's permissions within the organization.
+
 ## Installation
 
 Clone the repository to your local machine.
