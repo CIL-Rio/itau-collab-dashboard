@@ -12,26 +12,42 @@ For more information about Webex devices metrics, refer to [xAPI docs](https://r
 
 Clone the repository to your local machine.
 Navigate to the project directory.
-Install the necessary Python packages using pip: pip install -r requirements.txt
-How to Run
-To execute the program, navigate to the project's root directory in your terminal and execute the following command:
 
-python run_pipeline.py
-Please note: Do not run 'main.py', even if you are using Webex Integration. This code runs a web server needed to retrieve the user token requested by Webex through integration. The main script for executing the project is 'run_pipeline.py'.
+Install the necessary Python packages using pip:
 
-## Installation
+```bash
+ pip install -r requirements.txt
+```
 
-Clone the repository to your local machine.
-Navigate to the project directory.
-Install the necessary python packages using pip: pip install -r requirements.txt
-How to Run
+Copy the env-example to .env and set the asked values. You just need to add the values for the api mode selected on WEBEX_API_MODE variable.
+
+```yaml
+# API MODE Service, Integration, OnPrem
+WEBEX_API_MODE=Service
+
+# WEBEX SERVICE CREDENTIALS
+WEBEX_SERVICE_CLIENT_ID=
+WEBEX_SERVICE_CLIENT_SECRET=
+
+WEBEX_SERVICE_ACCESS_TOKEN=
+WEBEX_SERVICE_REFRESH_TOKEN=
+# WEBEX INTEGRATION CREDENTIALS
+
+WEBEX_INTEGRATION_CLIENT_ID=
+WEBEX_INTEGRATION_CLIENT_SECRET=
+WEBEX_INTEGRATION_REDIRECT_URI=
+
+```
+
+## How to Run
 To execute the program, navigate to the project's root directory in your terminal and execute the following command:
 
 ```bash
 python run_pipeline.py
 ```
 
-Please note: Do not run '__main.py__' althoug you gonna use Webex Integration. This code runs a web server needed to get the user token asked  Webex by integration. The main script for executing the project is 'run_pipeline.py'.
+Please note: Do not run '__main.py__', unless you are using Webex Integration. This code runs a web server needed to retrieve the user token requested by Webex Integration. The main script for executing the project is 'run_pipeline.py'.
+
 
 ## Contribution
 
