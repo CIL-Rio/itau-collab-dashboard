@@ -35,7 +35,7 @@ xmlMetrics = ['*']
 
 
 class DataPipeline():
-    def __init__(self, client_id, client_secret,  username, password, access_token, refresh_token, redirect_uri=None, code=None, mode='Service', devices=[]):
+    def __init__(self, client_id=None, client_secret=None,  username=None, password=None, access_token=None, refresh_token=None, redirect_uri=None, code=None, mode='Service', devices=[]):
         self.device = devices
         self.Data = []
         # Choose between Integration, Service or Local (On Premises) operation mode
@@ -44,7 +44,7 @@ class DataPipeline():
                 client_id=client_id, client_secret=client_secret,  refresh_token=refresh_token, access_token=access_token)
         elif mode == 'Integration':
             self.webexGeter = webexIntegration(
-                client_id=client_id, client_secret=client_secret,  refresh_token=refresh_token, access_token=access_token, redirect_uri=redirect_uri, code=code)
+                client_id=client_id, client_secret=client_secret, redirect_uri=redirect_uri, code=code)
         else:
             self.webexGeter = webexLocal(
                 username=username, password=password)
@@ -76,12 +76,16 @@ class DataPipeline():
                     data['result'])
             except:
                 pass
+
         try:
             # Post the data to ElasticSearch / Can be changed to any other database
-            # requests.post(url='http://localhost:9200/webexdata_device/_doc',  data=(json.dumps({"@timestamp": str(datetime.datetime.now(tz=BRT).isoformat()), "Data": metrics, "DeviceId": device})),
-            #               headers={'Content-type': 'application/json'}, auth=('admin', 'admin'), verify=False)
+
             print(json.dumps({"@timestamp": str(datetime.datetime.now(
                 tz=BRT).isoformat()), "Data": metrics, "DeviceId": device}))
+
+            requests.post(url='http://localhost:9200/webexdata_device/_doc',  data=(json.dumps({"@timestamp": str(datetime.datetime.now(tz=BRT).isoformat()), "Data": metrics, "DeviceId": device})),
+                          headers={'Content-type': 'application/json'}, auth=('admin', 'admin'), verify=False, timeout=10)
+
             log.info(
                 f'Metrics sent to ElasticSearch Successfully for device {device}')
 

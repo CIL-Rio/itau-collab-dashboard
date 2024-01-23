@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project implements a pipeline to retrieve data and metrics from Webex devices. The logic to gather these metrics is defined in the pipeline class, which specifies the metrics to be collected and the frequency of the queries. The Webex class defines the query to retrieve the metrics and the authentication process on Webex. Three classes have been implemented, each utilizing a different model of authentication (Services, Integration, On-premises). For automated processes, we recommend using Webex services.
+This project implements a pipeline to retrieve data and metrics from Webex devices. The logic to gather these metrics is defined in the pipeline class, which specifies the metrics to be collected and the frequency of the queries and send this data to Elastic Search. The Webex class defines the query to retrieve the metrics and the authentication process on Webex. Three classes have been implemented, each utilizing a different model of authentication (Services, Integration, On-premises). For automated processes, we recommend using Webex services.
 
 For development, we recommend using the development token available at [webex developer](https://developer.webex.com/docs/getting-started). Simply set this token in the environment variable WEBEX_SERVICE_ACCESS_TOKEN.
 
@@ -14,6 +14,13 @@ Please note that Webex Services must be approved by the Webex Organization where
 
 Clone the repository to your local machine.
 Navigate to the project directory.
+
+Setup the ElasticSearch docker:
+
+```bash
+docker-compose up -d
+
+```
 
 Install the necessary Python packages using pip:
 
